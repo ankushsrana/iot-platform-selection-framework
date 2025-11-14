@@ -26,7 +26,7 @@ const evaluationDimensions = [
   },
   {
     id: 'team_capability',
-    name: 'Team Capability &amp; Skill Alignment',
+    name: 'Team Capability & Skill Alignment',
     weight: 20,
     questions: [
       'Does the platform match our team\'s current technical skills?',
