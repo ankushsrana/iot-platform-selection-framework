@@ -50,7 +50,7 @@ const evaluationDimensions = [
   },
   {
     id: 'scalability',
-    name: 'Scalability &amp; Future-Proofing',
+    name: 'Scalability & Future-Proofing',
     weight: 15,
     questions: [
       'Can the platform scale horizontally as data volumes grow?',
@@ -70,7 +70,7 @@ const idealCharacteristics = [
     checked: false
   },
   {
-    title: 'Unified Real-Time &amp; Batch Processing',
+    title: 'Unified Real-Time & Batch Processing',
     description: 'Real-time ingestion + batch operations, simultaneously. Sub-second latency streaming. Automatic data movement between stores. Consistent query semantics.',
     checked: false
   },
