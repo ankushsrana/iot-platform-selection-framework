@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Choose the Right Industrial IoT Platform - A Research-Backed Framework</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+:root {
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+  --color-red-500-rgb: 192, 21, 47;
+  --color-red-400-rgb: 255, 84, 89;
+  --color-orange-500-rgb: 168, 75, 47;
+  --color-orange-400-rgb: 230, 129, 97;
+  --color-bg-1: rgba(59, 130, 246, 0.08);
+  --color-bg-2: rgba(245, 158, 11, 0.08);
+  --color-bg-3: rgba(34, 197, 94, 0.08);
+  --color-bg-4: rgba(239, 68, 68, 0.08);
+  --color-bg-5: rgba(147, 51, 234, 0.08);
+  --color-bg-6: rgba(249, 115, 22, 0.08);
+  --color-bg-7: rgba(236, 72, 153, 0.08);
+  --color-bg-8: rgba(6, 182, 212, 0.08);
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-gray-400-rgb: 119, 124, 124;
+    --color-teal-300-rgb: 50, 184, 198;
+    --color-gray-300-rgb: 167, 169, 169;
+    --color-gray-200-rgb: 245, 245, 245;
+    --color-bg-1: rgba(29, 78, 216, 0.15);
+    --color-bg-2: rgba(180, 83, 9, 0.15);
+    --color-bg-3: rgba(21, 128, 61, 0.15);
+    --color-bg-4: rgba(185, 28, 28, 0.15);
+    --color-bg-5: rgba(107, 33, 168, 0.15);
+    --color-bg-6: rgba(194, 65, 12, 0.15);
+    --color-bg-7: rgba(190, 24, 93, 0.15);
+    --color-bg-8: rgba(8, 145, 178, 0.15);
+    --color-background: var(--color-charcoal-700);
+    --color-surface: var(--color-charcoal-800);
+    --color-text: var(--color-gray-200);
+    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+    --color-primary: var(--color-teal-300);
+    --color-primary-hover: var(--color-teal-400);
+    --color-primary-active: var(--color-teal-800);
+    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-error: var(--color-red-400);
+    --color-success: var(--color-teal-300);
+    --color-warning: var(--color-orange-400);
+    --color-info: var(--color-gray-300);
+    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+    --color-btn-primary-text: var(--color-slate-900);
+    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+    --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+    --color-success-rgb: var(--color-teal-300-rgb);
+    --color-error-rgb: var(--color-red-400-rgb);
+    --color-warning-rgb: var(--color-orange-400-rgb);
+    --color-info-rgb: var(--color-gray-300-rgb);
+  }
+}
+
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-base);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: var(--line-height-normal);
+}
+
+.nav-bar {
+    position: sticky;
+    top: 0;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--space-16) var(--space-24);
+    display: flex;
+    gap: var(--space-16);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.nav-link {
+    padding: var(--space-8) var(--space-16);
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-standard);
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background: var(--color-secondary-hover);
+}
+
+.hero {
+    background: var(--color-bg-1);
+    padding: var(--space-32) var(--space-24);
+    text-align: center;
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.hero h1 {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-12);
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+.hero p {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin: 0 auto var(--space-24) auto;
+}
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-16);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stat-box {
+    background: var(--color-surface);
+    padding: var(--space-20);
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--color-card-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-value {
+    display: block;
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-error);
+    margin-bottom: var(--space-8);
+}
+
+.stat-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    font-weight: var(--font-weight-medium);
+}
+
+.stat-source {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-4);
+    font-style: italic;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--space-24);
+}
+
+.section {
+    margin-bottom: var(--space-32);
+    padding: var(--space-32) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-32);
+}
+
+.section-title {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-12);
+}
+
+.section-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-24);
+}
+
+.card {
+    background: var(--color-surface);
+    border: 2px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-24);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.card-icon {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-16);
+}
+
+.card-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-12);
+}
+
+.card-text {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.expandable-card {
+    cursor: pointer;
+    border-left: 4px solid var(--color-primary);
+}
+
+.expandable-card.expanded {
+    border-left-color: var(--color-success);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.expand-icon {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
+    transition: transform var(--duration-normal) var(--ease-standard);
+}
+
+.expandable-card.expanded .expand-icon {
+    transform: rotate(180deg);
+}
+
+.card-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s var(--ease-standard);
+}
+
+.expandable-card.expanded .card-details {
+    max-height: 1000px;
+}
+
+.card-details-content {
+    padding-top: var(--space-16);
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-16);
+}
+
+.detail-item {
+    margin-bottom: var(--space-12);
+}
+
+.detail-label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    display: block;
+    margin-bottom: var(--space-4);
+}
+
+.detail-value {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+    margin-top: var(--space-8);
+}
+
+.tag {
+    padding: var(--space-4) var(--space-12);
+    background: var(--color-bg-3);
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+}
+
+.capability-card {
+    background: var(--color-surface);
+    border: 2px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-24);
+    margin-bottom: var(--space-16);
+}
+
+.capability-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-16);
+    margin-bottom: var(--space-16);
+}
+
+.capability-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    flex-shrink: 0;
+}
+
+.capability-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+}
+
+.capability-desc {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-16);
+    line-height: 1.6;
+}
+
+.question-list {
+    background: var(--color-bg-2);
+    padding: var(--space-16);
+    border-radius: var(--radius-base);
+    margin-top: var(--space-12);
+}
+
+.question-list h4 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-12);
+}
+
+.question-list ul {
+    list-style: none;
+}
+
+.question-list li {
+    padding: var(--space-8) 0;
+    padding-left: var(--space-20);
+    position: relative;
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+}
+
+.question-list li::before {
+    content: "?";
+    position: absolute;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+}
+
+.evaluation-framework {
+    background: var(--color-surface);
+    border: 3px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-32);
+    margin-top: var(--space-24);
+}
+
+.dimension-section {
+    margin-bottom: var(--space-32);
+    padding: var(--space-24);
+    background: var(--color-bg-1);
+    border-radius: var(--radius-lg);
+}
+
+.dimension-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-20);
+}
+
+.dimension-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+}
+
+.dimension-score {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+.question-item {
+    background: var(--color-surface);
+    padding: var(--space-16);
+    border-radius: var(--radius-base);
+    margin-bottom: var(--space-12);
+}
+
+.question-text {
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    margin-bottom: var(--space-12);
+    font-weight: var(--font-weight-medium);
+}
+
+.rating-buttons {
+    display: flex;
+    gap: var(--space-8);
+}
+
+.rating-btn {
+    flex: 1;
+    padding: var(--space-8);
+    background: var(--color-secondary);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-base);
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.rating-btn:hover {
+    background: var(--color-secondary-hover);
+}
+
+.rating-btn.selected {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-btn-primary-text);
+}
+
+.score-summary {
+    background: var(--color-surface);
+    border: 3px solid var(--color-success);
+    border-radius: var(--radius-lg);
+    padding: var(--space-32);
+    margin-top: var(--space-32);
+    text-align: center;
+}
+
+.total-score {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-success);
+    margin: var(--space-16) 0;
+}
+
+.score-label {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-8);
+}
+
+.score-interpretation {
+    display: inline-block;
+    padding: var(--space-12) var(--space-24);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin-top: var(--space-16);
+}
+
+.score-green {
+    background: var(--color-bg-3);
+    color: var(--color-success);
+}
+
+.score-yellow {
+    background: var(--color-bg-2);
+    color: var(--color-warning);
+}
+
+.score-red {
+    background: var(--color-bg-4);
+    color: var(--color-error);
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--space-16);
+    justify-content: center;
+    margin-top: var(--space-24);
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: var(--space-12) var(--space-24);
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-standard);
+    border: none;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text);
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-hover);
+}
+
+.btn-secondary {
+    background: var(--color-secondary);
+    border: 2px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.btn-secondary:hover {
+    background: var(--color-secondary-hover);
+}
+
+.tco-calculator {
+    background: var(--color-surface);
+    border: 2px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-32);
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-20);
+    margin-bottom: var(--space-24);
+}
+
+.calculator-item {
+    background: var(--color-bg-1);
+    padding: var(--space-20);
+    border-radius: var(--radius-base);
+}
+
+.calculator-label {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-8);
+    display: block;
+}
+
+.calculator-input {
+    width: 100%;
+    padding: var(--space-12);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-base);
+    font-family: var(--font-family-base);
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+.calculator-input:focus {
+    outline: var(--focus-outline);
+    border-color: var(--color-primary);
+}
+
+.tco-result {
+    background: var(--color-bg-3);
+    padding: var(--space-24);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    margin-top: var(--space-24);
+}
+
+.tco-total {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-success);
+    margin: var(--space-16) 0;
+}
+
+.chart-container {
+    position: relative;
+    height: 400px;
+    margin: var(--space-24) 0;
+    background: var(--color-surface);
+    padding: var(--space-20);
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--color-card-border);
+}
+
+.checklist {
+    display: grid;
+    gap: var(--space-12);
+}
+
+.checklist-item {
+    display: flex;
+    align-items: start;
+    gap: var(--space-12);
+    padding: var(--space-16);
+    background: var(--color-surface);
+    border: 2px solid var(--color-card-border);
+    border-radius: var(--radius-base);
+    transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.checklist-item:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: var(--space-4);
+}
+
+.checkbox.checked {
+    background: var(--color-success);
+    border-color: var(--color-success);
+    position: relative;
+}
+
+.checkbox.checked::after {
+    content: "✓";
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: var(--font-size-base);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.checklist-content {
+    flex: 1;
+}
+
+.checklist-title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-8);
+}
+
+.checklist-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.tab-container {
+    margin-top: var(--space-24);
+}
+
+.tab-buttons {
+    display: flex;
+    gap: var(--space-8);
+    border-bottom: 2px solid var(--color-border);
+    margin-bottom: var(--space-24);
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: var(--space-12) var(--space-20);
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.tab-btn:hover {
+    color: var(--color-text);
+}
+
+.tab-btn.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.mistake-card {
+    background: var(--color-surface);
+    border: 2px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-24);
+}
+
+.mistake-section {
+    margin-bottom: var(--space-20);
+}
+
+.mistake-section:last-child {
+    margin-bottom: 0;
+}
+
+.mistake-heading {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-12);
+}
+
+.red-flag-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.red-flag-list li {
+    padding: var(--space-8) var(--space-12);
+    background: var(--color-bg-4);
+    border-left: 3px solid var(--color-error);
+    margin-bottom: var(--space-8);
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+}
+
+.linkedin-question {
+    background: var(--color-surface);
+    border: 2px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-24);
+    margin-bottom: var(--space-20);
+}
+
+.question-number {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text);
+    text-align: center;
+    line-height: 32px;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-12);
+}
+
+.question-prompt {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-16);
+}
+
+.question-textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: var(--space-12);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-base);
+    font-family: var(--font-family-base);
+    background: var(--color-surface);
+    color: var(--color-text);
+    resize: vertical;
+}
+
+.question-textarea:focus {
+    outline: var(--focus-outline);
+    border-color: var(--color-primary);
+}
+
+.copy-btn {
+    margin-top: var(--space-12);
+    padding: var(--space-8) var(--space-16);
+    background: var(--color-secondary);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-base);
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.copy-btn:hover {
+    background: var(--color-secondary-hover);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: var(--space-24);
+    right: var(--space-24);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text);
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size-xl);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--duration-fast) var(--ease-standard);
+    z-index: 50;
+}
+
+.back-to-top:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-2px);
+}
+
+.back-to-top.visible {
+    display: flex;
+}
+
+.footer {
+    background: var(--color-slate-900);
+    color: var(--color-gray-200);
+    padding: var(--space-32) var(--space-24);
+    margin-top: var(--space-32);
+    border-top: 3px solid var(--color-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+    .footer {
+        background: var(--color-charcoal-800);
+        border-top: 3px solid var(--color-teal-300);
+    }
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-24);
+    flex-wrap: wrap;
+}
+
+.footer-left {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-author {
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-200);
+    margin-bottom: var(--space-8);
+}
+
+.footer-author strong {
+    color: var(--color-teal-300);
+    font-weight: var(--font-weight-bold);
+}
+
+.footer-title {
+    font-size: var(--font-size-base);
+    color: var(--color-gray-300);
+    margin-bottom: var(--space-8);
+}
+
+.footer-copyright {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-300);
+    margin-top: var(--space-12);
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+}
+
+.linkedin-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    padding: var(--space-12) var(--space-20);
+    background: var(--color-primary);
+    color: var(--color-slate-900);
+    border-radius: var(--radius-base);
+    text-decoration: none;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    transition: all var(--duration-fast) var(--ease-standard);
+    box-shadow: var(--shadow-sm);
+}
+
+.linkedin-link:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+@media (prefers-color-scheme: dark) {
+    .linkedin-link {
+        background: var(--color-teal-300);
+        color: var(--color-slate-900);
+    }
+    
+    .linkedin-link:hover {
+        background: var(--color-teal-400);
+    }
+}
+
+.linkedin-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.linkedin-text {
+    font-size: var(--font-size-base);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-left,
+    .footer-right {
+        width: 100%;
+    }
+    
+    .footer-right {
+        justify-content: center;
+    }
+    
+    .linkedin-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-row,
+    .card-grid,
+    .calculator-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero h1 {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .section-title {
+        font-size: var(--font-size-2xl);
+    }
+}
+
+@media print {
+    .nav-bar,
+    .back-to-top,
+    .action-buttons,
+    .footer {
+        display: none;
+    }
+    
+    .section {
+        page-break-inside: avoid;
+    }
+}
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-link">Home</a>
+            <a href="#problem" class="nav-link">The Problem</a>
+            <a href="#mistakes" class="nav-link">Common Mistakes</a>
+            <a href="#capabilities" class="nav-link">5 Capabilities</a>
+            <a href="#framework" class="nav-link">Evaluation Framework</a>
+            <a href="#tco" class="nav-link">TCO Calculator</a>
+            <a href="#characteristics" class="nav-link">Partner Traits</a>
+            <a href="#questions" class="nav-link">Pre-Selection</a>
+            <a href="#common-errors" class="nav-link">Pitfalls</a>
+
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <h1>How to Choose the Right Industrial IoT Platform</h1>
+        <p>A Research-Backed Framework for Manufacturing Leaders</p>
+        <div class="stats-row">
+            <div class="stat-box">
+                <span class="stat-value">61%</span>
+                <div class="stat-desc">of IoT initiatives don't progress beyond POC</div>
+                <div class="stat-source">McKinsey 2023</div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value">74%</span>
+                <div class="stat-desc">of IoT projects face integration challenges</div>
+                <div class="stat-source">Boston Consulting Group</div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value">$260K/hour</span>
+                <div class="stat-desc">unplanned downtime cost for manufacturers</div>
+                <div class="stat-source">Aberdeen Research</div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value">50%</span>
+                <div class="stat-desc">of IoT projects fail due to budget overruns</div>
+                <div class="stat-source">IDC</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="problem" class="section">
+            <div class="section-header">
+                <h2 class="section-title">The Core Problem</h2>
+                <p class="section-subtitle">Manufacturing data originates from incompatible systems, and decisions take weeks while equipment failures arrive as surprises.</p>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🔗</div>
+                    <h3 class="card-title">Data Fragmentation</h3>
+                    <p class="card-text">Manufacturing data originates from incompatible systems</p>
+                    <div class="tag-list">
+                        <span class="tag">SAP/Oracle ERP</span>
+                        <span class="tag">MQTT Sensor Networks</span>
+                        <span class="tag">SCADA Systems</span>
+                        <span class="tag">MongoDB/PostgreSQL</span>
+                        <span class="tag">Azure/AWS Cloud</span>
+                    </div>
+                    <p class="card-text" style="margin-top: 16px;"><strong>Impact:</strong> Decisions take weeks, equipment failures arrive as surprises</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤔</div>
+                    <h3 class="card-title">Selection Paralysis</h3>
+                    <p class="card-text">500+ IoT platforms exist, each claiming to be "best"</p>
+                    <div class="tag-list">
+                        <span class="tag">AWS IoT Core</span>
+                        <span class="tag">Azure IoT Hub</span>
+                        <span class="tag">Google Cloud IoT</span>
+                        <span class="tag">Siemens MindSphere</span>
+                        <span class="tag">PTC ThingWorx</span>
+                        <span class="tag">IBM Watson IoT</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💰</div>
+                    <h3 class="card-title">Cost Reality</h3>
+                    <p class="card-text"><strong>$260K per hour</strong> unplanned downtime for manufacturers</p>
+                    <div style="margin-top: 16px;">
+                        <div class="stat-box">
+                            <span class="stat-value">74%</span>
+                            <div class="stat-desc">face integration challenges</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mistakes" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Why Traditional Selection Fails</h2>
+                <p class="section-subtitle">Click each card to explore common mistakes in platform selection</p>
+            </div>
+            <div class="card-grid">
+                <div class="card expandable-card" onclick="toggleExpand(this)">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-icon">📋</div>
+                            <h3 class="card-title">Feature Checklist Evaluation</h3>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <p class="card-text">Comparing platforms by counting features instead of business outcomes</p>
+                    <div class="card-details">
+                        <div class="card-details-content">
+                            <div class="detail-item">
+                                <span class="detail-label">Example:</span>
+                                <span class="detail-value">IBM Watson IoT had extensive features but suffered from high implementation costs and complexity</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Red Flags:</span>
+                                <ul class="red-flag-list">
+                                    <li>Platform has most features but unclear ROI</li>
+                                    <li>Vendor features don't map to your use cases</li>
+                                    <li>Features you won't use in first 18 months</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card expandable-card" onclick="toggleExpand(this)">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-icon">🏢</div>
+                            <h3 class="card-title">Vendor-Led Selection</h3>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <p class="card-text">Cloud vendors bias you toward their ecosystem</p>
+                    <div class="card-details">
+                        <div class="card-details-content">
+                            <div class="detail-item">
+                                <span class="detail-label">Example:</span>
+                                <span class="detail-value">AWS, Azure, Google each claim superiority for different scenarios</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Red Flags:</span>
+                                <ul class="red-flag-list">
+                                    <li>Let the vendor make the decision</li>
+                                    <li>Locked into single cloud ecosystem</li>
+                                    <li>No independent evaluation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card expandable-card" onclick="toggleExpand(this)">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-icon">🔨</div>
+                            <h3 class="card-title">Build vs. Buy Without TCO</h3>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <p class="card-text">Underestimating long-term costs of custom platforms</p>
+                    <div class="card-details">
+                        <div class="card-details-content">
+                            <div class="detail-item">
+                                <span class="detail-label">Example:</span>
+                                <span class="detail-value">Building custom infrastructure: $2.7M+ total cost vs. managed $50-500K annually</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Red Flags:</span>
+                                <ul class="red-flag-list">
+                                    <li>Budget only for development, not operations</li>
+                                    <li>Assume one team member can maintain indefinitely</li>
+                                    <li>Ignore ongoing security/compliance costs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card expandable-card" onclick="toggleExpand(this)">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-icon">🏭</div>
+                            <h3 class="card-title">Legacy System Blindness</h3>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <p class="card-text">80% of factories have mixed environments with old equipment</p>
+                    <div class="card-details">
+                        <div class="card-details-content">
+                            <div class="detail-item">
+                                <span class="detail-label">Example:</span>
+                                <span class="detail-value">Modern IoT expects MQTT, legacy systems use Modbus - they don't talk</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Red Flags:</span>
+                                <ul class="red-flag-list">
+                                    <li>Plan only for new systems</li>
+                                    <li>Assume retrofit existing equipment easily</li>
+                                    <li>Ignore communication protocol gaps</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card expandable-card" onclick="toggleExpand(this)">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-icon">👥</div>
+                            <h3 class="card-title">Team Skill Misalignment</h3>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <p class="card-text">Platform wrong for your team's capabilities</p>
+                    <div class="card-details">
+                        <div class="card-details-content">
+                            <div class="detail-item">
+                                <span class="detail-label">Example:</span>
+                                <span class="detail-value">Choosing platform requiring expertise your team doesn't have</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Red Flags:</span>
+                                <ul class="red-flag-list">
+                                    <li>Assume team will learn everything needed</li>
+                                    <li>Platform requires skills you can't hire for</li>
+                                    <li>Onboarding longer than project timeline</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="capabilities" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Five Critical Capabilities</h2>
+                <p class="section-subtitle">Essential features that separate successful platforms from failures</p>
+            </div>
+            
+            <div class="capability-card">
+                <div class="capability-header">
+                    <div class="capability-number">1</div>
+                    <h3 class="capability-title">Multi-Source Data Integration</h3>
+                </div>
+                <p class="capability-desc">Ingest data from diverse sources and normalize in single flow. Manufacturing data from incompatible systems must be unified.</p>
+                <div class="tag-list">
+                    <span class="tag">SAP/Oracle</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">MQTT Brokers</span>
+                    <span class="tag">Azure Event Hub</span>
+                    <span class="tag">Legacy Systems</span>
+                </div>
+                <div class="question-list">
+                    <h4>Key Questions to Ask:</h4>
+                    <ul>
+                        <li>What data sources can you natively connect to?</li>
+                        <li>How do you handle format conversion?</li>
+                        <li>Can I define custom transformations without coding?</li>
+                        <li>What's integration timeline for new sources?</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 12px; padding: 12px; background: var(--color-bg-4); border-radius: var(--radius-base); border-left: 3px solid var(--color-error);">
+                    <strong>Red Flag:</strong> Multiple custom connectors required = cost overrun
+                </div>
+            </div>
+
+            <div class="capability-card">
+                <div class="capability-header">
+                    <div class="capability-number">2</div>
+                    <h3 class="capability-title">Real-Time Streaming + Batch Processing</h3>
+                </div>
+                <p class="capability-desc">Support real-time ingestion AND batch historical processing simultaneously. Operational dashboards need real-time, analytics need history.</p>
+                <div class="card-grid" style="margin-top: 16px;">
+                    <div class="card">
+                        <h4 style="font-size: var(--font-size-base); margin-bottom: 8px;">Real-Time</h4>
+                        <p style="font-size: var(--font-size-sm);">Equipment anomaly alerts (immediate)</p>
+                    </div>
+                    <div class="card">
+                        <h4 style="font-size: var(--font-size-base); margin-bottom: 8px;">Batch</h4>
+                        <p style="font-size: var(--font-size-sm);">Pattern analysis across weeks (historical)</p>
+                    </div>
+                </div>
+                <div class="question-list">
+                    <h4>Key Questions to Ask:</h4>
+                    <ul>
+                        <li>Do you handle streaming separately from batch?</li>
+                        <li>Can same queries run on real-time and historical?</li>
+                        <li>What's data latency for streaming?</li>
+                        <li>Can you handle OLAP workloads alongside real-time?</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 12px; padding: 12px; background: var(--color-bg-4); border-radius: var(--radius-base); border-left: 3px solid var(--color-error);">
+                    <strong>Red Flag:</strong> Platform designed only for streaming or batch, not both
+                </div>
+            </div>
+
+            <div class="capability-card">
+                <div class="capability-header">
+                    <div class="capability-number">3</div>
+                    <h3 class="capability-title">Built-In Observability</h3>
+                </div>
+                <p class="capability-desc">Visibility into pipeline health, lag, failures, performance without external tools. Hidden failures are the enemy of manufacturing.</p>
+                <div class="tag-list">
+                    <span class="tag">Message volume per source</span>
+                    <span class="tag">Consumer lag (how far behind)</span>
+                    <span class="tag">Transformation failures</span>
+                    <span class="tag">Data lineage tracking</span>
+                    <span class="tag">Audit logs</span>
+                </div>
+                <div class="question-list">
+                    <h4>Key Questions to Ask:</h4>
+                    <ul>
+                        <li>Can I monitor message volumes in real-time?</li>
+                        <li>Do you show consumer lag?</li>
+                        <li>What happens when transformations fail?</li>
+                        <li>Can I see data lineage?</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 12px; padding: 12px; background: var(--color-bg-4); border-radius: var(--radius-base); border-left: 3px solid var(--color-error);">
+                    <strong>Red Flag:</strong> Requires third-party monitoring tools
+                </div>
+            </div>
+
+            <div class="capability-card">
+                <div class="capability-header">
+                    <div class="capability-number">4</div>
+                    <h3 class="capability-title">Flexible Data Stores</h3>
+                </div>
+                <p class="capability-desc">Multiple storage layers optimized for different query patterns. Different stakeholders need different access patterns.</p>
+                <div class="card-grid" style="margin-top: 16px;">
+                    <div class="card">
+                        <h4 style="font-size: var(--font-size-sm); margin-bottom: 4px;">Real-time tables</h4>
+                        <p style="font-size: var(--font-size-xs);">Operations teams</p>
+                    </div>
+                    <div class="card">
+                        <h4 style="font-size: var(--font-size-sm); margin-bottom: 4px;">OLAP databases</h4>
+                        <p style="font-size: var(--font-size-xs);">BI aggregations</p>
+                    </div>
+                    <div class="card">
+                        <h4 style="font-size: var(--font-size-sm); margin-bottom: 4px;">Data warehouse</h4>
+                        <p style="font-size: var(--font-size-xs);">Historical analysis</p>
+                    </div>
+                    <div class="card">
+                        <h4 style="font-size: var(--font-size-sm); margin-bottom: 4px;">Data lake</h4>
+                        <p style="font-size: var(--font-size-xs);">Exploratory analysis</p>
+                    </div>
+                </div>
+                <div class="question-list">
+                    <h4>Key Questions to Ask:</h4>
+                    <ul>
+                        <li>Do you support multiple data store types?</li>
+                        <li>Can you move data between stores automatically?</li>
+                        <li>What query performance per store type?</li>
+                        <li>How do you handle data consistency?</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 12px; padding: 12px; background: var(--color-bg-4); border-radius: var(--radius-base); border-left: 3px solid var(--color-error);">
+                    <strong>Red Flag:</strong> Single monolithic data store for all purposes
+                </div>
+            </div>
+
+            <div class="capability-card">
+                <div class="capability-header">
+                    <div class="capability-number">5</div>
+                    <h3 class="capability-title">API-First Data Access</h3>
+                </div>
+                <p class="capability-desc">Standardized APIs for external system consumption, not manual reports. Once validated, data should power all downstream systems.</p>
+                <div class="card-grid" style="margin-top: 16px;">
+                    <div class="card">
+                        <h4 style="font-size: var(--font-size-sm); margin-bottom: 4px;">Decoupling</h4>
+                        <p style="font-size: var(--font-size-xs);">Platform doesn't care what uses data</p>
+                    </div>
+                    <div class="card">
+                        <h4 style="font-size: var(--font-size-sm); margin-bottom: 4px;">Scalability</h4>
+                        <p style="font-size: var(--font-size-xs);">Multiple systems invoke same query</p>
+                    </div>
+                    <div class="card">
+                        <h4 style="font-size: var(--font-size-sm); margin-bottom: 4px;">Governance</h4>
+                        <p style="font-size: var(--font-size-xs);">Control access through API keys</p>
+                    </div>
+                </div>
+                <div class="question-list">
+                    <h4>Key Questions to Ask:</h4>
+                    <ul>
+                        <li>Can I save queries and invoke via REST APIs?</li>
+                        <li>Do you provide API documentation and SDKs?</li>
+                        <li>How do you handle API authentication?</li>
+                        <li>What's your rate limiting and SLA?</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 12px; padding: 12px; background: var(--color-bg-4); border-radius: var(--radius-base); border-left: 3px solid var(--color-error);">
+                    <strong>Red Flag:</strong> No API layer, only manual report extraction
+                </div>
+            </div>
+        </section>
+
+        <section id="framework" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Five-Dimension Evaluation Framework</h2>
+                <p class="section-subtitle">Rate each criterion from 1-5 to calculate your platform's total score (0-100)</p>
+            </div>
+            
+            <div class="evaluation-framework" id="evaluationFramework"></div>
+            
+            <div class="score-summary" id="scoreSummary">
+                <div class="score-label">Your Overall Platform Score</div>
+                <div class="total-score" id="totalScore">0/100</div>
+                <div id="scoreInterpretation"></div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="downloadResults()">📥 Download Results</button>
+                    <button class="btn btn-secondary" onclick="resetScores()">🔄 Reset Scores</button>
+                    <button class="btn btn-secondary" onclick="shareResults()">📤 Share via Email</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="tco" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Total Cost of Ownership (TCO) Calculator</h2>
+                <p class="section-subtitle">Calculate your 3-year platform investment</p>
+            </div>
+            
+            <div class="tco-calculator">
+                <div class="calculator-grid">
+                    <div class="calculator-item">
+                        <label class="calculator-label">Software Licensing (Annual)</label>
+                        <input type="number" class="calculator-input" id="licensing" value="150000" min="0" onchange="calculateTCO()">
+                        <div style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-top: 4px;">Range: $50K-$500K</div>
+                    </div>
+                    <div class="calculator-item">
+                        <label class="calculator-label">Infrastructure/Hosting (Annual)</label>
+                        <input type="number" class="calculator-input" id="infrastructure" value="75000" min="0" onchange="calculateTCO()">
+                        <div style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-top: 4px;">Range: $30K-$150K</div>
+                    </div>
+                    <div class="calculator-item">
+                        <label class="calculator-label">Implementation Services (One-time)</label>
+                        <input type="number" class="calculator-input" id="implementation" value="200000" min="0" onchange="calculateTCO()">
+                        <div style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-top: 4px;">Range: $150K-$300K</div>
+                    </div>
+                    <div class="calculator-item">
+                        <label class="calculator-label">Team Costs (Annual per FTE)</label>
+                        <input type="number" class="calculator-input" id="teamCost" value="150000" min="0" onchange="calculateTCO()">
+                        <div style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-top: 4px;">Range: $100K-$200K</div>
+                    </div>
+                    <div class="calculator-item">
+                        <label class="calculator-label">Number of FTEs</label>
+                        <input type="number" class="calculator-input" id="teamSize" value="2" min="1" onchange="calculateTCO()">
+                    </div>
+                    <div class="calculator-item">
+                        <label class="calculator-label">Operations/Support (Annual)</label>
+                        <input type="number" class="calculator-input" id="operations" value="25000" min="0" onchange="calculateTCO()">
+                        <div style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-top: 4px;">Range: $15K-$40K</div>
+                    </div>
+                </div>
+                
+                <div class="tco-result">
+                    <div class="score-label">3-Year Total Cost of Ownership</div>
+                    <div class="tco-total" id="tcoTotal">$0</div>
+                    <div style="font-size: var(--font-size-base); color: var(--color-text); margin-top: 8px;">
+                        <div><strong>Year 1:</strong> <span id="year1">$0</span></div>
+                        <div><strong>Year 2:</strong> <span id="year2">$0</span></div>
+                        <div><strong>Year 3:</strong> <span id="year3">$0</span></div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="tcoChart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="costBreakdownChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="characteristics" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Ideal Technology Partner Characteristics</h2>
+                <p class="section-subtitle">Check off characteristics that align with your platform evaluation</p>
+            </div>
+            
+            <div class="checklist" id="characteristicsChecklist"></div>
+            
+            <div style="margin-top: 24px; text-align: center; padding: 20px; background: var(--color-bg-3); border-radius: var(--radius-lg);">
+                <div style="font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--color-text); margin-bottom: 8px;">
+                    Characteristics Matched: <span id="checkedCount">0</span>/9
+                </div>
+                <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                    Aim for at least 7/9 for a strong platform choice
+                </div>
+            </div>
+        </section>
+
+        <section id="questions" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Pre-Selection Questions Worksheet</h2>
+                <p class="section-subtitle">Answer these questions before engaging with vendors</p>
+            </div>
+            
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="switchTab(0)">Business Context</button>
+                    <button class="tab-btn" onclick="switchTab(1)">Operational Context</button>
+                </div>
+                
+                <div class="tab-content active" id="tab0">
+                    <div class="card-grid">
+                        <div class="card expandable-card" onclick="toggleExpand(this)">
+                            <div class="card-header">
+                                <h3 class="card-title">What specific business problem are we solving?</h3>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="card-details">
+                                <div class="card-details-content">
+                                    <p class="card-text">Define the concrete business outcome (e.g., reduce downtime by 30%, improve OEE from 65% to 80%, predict failures 2 weeks in advance)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card expandable-card" onclick="toggleExpand(this)">
+                            <div class="card-header">
+                                <h3 class="card-title">What's the cost of the current problem?</h3>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="card-details">
+                                <div class="card-details-content">
+                                    <p class="card-text">Quantify in dollars: downtime cost per hour, quality defect costs, maintenance inefficiency costs</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card expandable-card" onclick="toggleExpand(this)">
+                            <div class="card-header">
+                                <h3 class="card-title">What's our realistic budget?</h3>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="card-details">
+                                <div class="card-details-content">
+                                    <p class="card-text">Include software, implementation, team costs, ongoing operations. Think 3-year TCO, not just first-year licensing.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card expandable-card" onclick="toggleExpand(this)">
+                            <div class="card-header">
+                                <h3 class="card-title">What's our timeline for ROI?</h3>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="card-details">
+                                <div class="card-details-content">
+                                    <p class="card-text">When do we need to see measurable business impact? 6 months? 12 months? 24 months?</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card expandable-card" onclick="toggleExpand(this)">
+                            <div class="card-header">
+                                <h3 class="card-title">Who are the stakeholders?</h3>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="card-details">
+                                <div class="card-details-content">
+                                    <p class="card-text">Operations managers, plant engineers, data scientists, IT teams, executives - who needs to buy in?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="tab1">
+                    <div class="card-grid">
+                        <div class="card expandable-card" onclick="toggleExpand(this)">
+                            <div class="card-header">
+                                <h3 class="card-title">What data sources must we integrate?</h3>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="card-details">
+                                <div class="card-details-content">
+                                    <p class="card-text">List every system: ERP, SCADA, sensors, databases, cloud services, legacy equipment</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card expandable-card" onclick="toggleExpand(this)">
+                            <div class="card-header">
+                                <h3 class="card-title">What communication protocols are in use?</h3>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="card-details">
+                                <div class="card-details-content">
+                                    <p class="card-text">MQTT, Modbus, OPC-UA, HTTP/HTTPS, Kafka, custom protocols?</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card expandable-card" onclick="toggleExpand(this)">
+                            <div class="card-header">
+                                <h3 class="card-title">What's our team's technical skill level?</h3>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="card-details">
+                                <div class="card-details-content">
+                                    <p class="card-text">Do we have data engineers? Python/SQL skills? Cloud experience? Or primarily operations/maintenance teams?</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card expandable-card" onclick="toggleExpand(this)">
+                            <div class="card-header">
+                                <h3 class="card-title">What's our deployment preference?</h3>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="card-details">
+                                <div class="card-details-content">
+                                    <p class="card-text">Cloud-hosted (AWS, Azure, GCP), on-premises, hybrid, edge computing?</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card expandable-card" onclick="toggleExpand(this)">
+                            <div class="card-header">
+                                <h3 class="card-title">What compliance requirements apply?</h3>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="card-details">
+                                <div class="card-details-content">
+                                    <p class="card-text">GDPR, HIPAA, ISO standards, data residency requirements, industry regulations?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="common-errors" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Common Platform Selection Mistakes</h2>
+                <p class="section-subtitle">Learn from others' errors - avoid these traps</p>
+            </div>
+            
+            <div class="tab-container">
+                <div class="tab-buttons" id="mistakesTabs"></div>
+                <div id="mistakesContent"></div>
+            </div>
+        </section>
+
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-author">Created by <strong>Ankush Rana</strong></div>
+                <div class="footer-title">Sr. Manager at IoT83</div>
+                <div class="footer-copyright">© 2025 All Rights Reserved</div>
+            </div>
+            <div class="footer-right">
+                <a href="https://www.linkedin.com/in/ankushsrana/" target="_blank" class="linkedin-link" aria-label="Follow Ankush Rana on LinkedIn">
+                    <svg class="linkedin-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    <span class="linkedin-text">Follow for more insights</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <script src="app.js"></script>
+</body>
+</html>
